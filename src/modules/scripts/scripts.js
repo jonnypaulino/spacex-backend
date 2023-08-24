@@ -32,6 +32,7 @@ async function importLaunches() {
                         launchData[key] = '';
                     }
                 }
+                launchData.rocketId = launchData.rocket;
                 launchData.window = launchData.window || null;
                 launchData.success = launchData.success ? 1 : 0;
                 launchData.static_fire_date_unix = launchData.static_fire_date_unix || null;

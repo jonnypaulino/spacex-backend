@@ -9,6 +9,7 @@ app.use(cors());
 
 
 const spacexroutes = require('./modules/spacex/routes');
+const importRockets = require('./modules/scripts/scriptsRockets');
 
 app.use(express.json());
 
@@ -16,10 +17,12 @@ app.use(router.get('/', (req, res) => {
   res.send('Fullstack Challenge 🏅 - Space X API');
 }))
 
+
 sequelize
   .sync()
   .then(() => {
     importLaunches()
+    importRockets()
     console.log("Database successfully connected");
   })
   .catch((err) => {

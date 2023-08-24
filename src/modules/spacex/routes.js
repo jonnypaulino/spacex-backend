@@ -14,4 +14,9 @@ routes.route('/launches').get(
    SpacexController().getLaunches
 );
 
+routes.route('/launches/stats').get(
+   
+   SpacexController().getLaunchesStats
+);
+
 module.exports = routes;

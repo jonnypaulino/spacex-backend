@@ -2,6 +2,7 @@
 
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../db/config');
+const Rocket = require('../../rockets/model/model');
 
 const Launch = sequelize.define('Launch', {
     fairings: {
@@ -112,6 +113,17 @@ const Launch = sequelize.define('Launch', {
         type: DataTypes.STRING,
         primaryKey: true,
       },
+      rocketId: {
+        type: DataTypes.STRING, // ou o tipo correto para suas necessidades
+        allowNull: false,
+        references: {
+            model: Rocket,
+            key: 'id',
+        },
+    },
 });
+
+Launch.belongsTo(Rocket, { foreignKey: 'rocketId', as: 'associatedRocket' });
+
 
 module.exports = Launch;
