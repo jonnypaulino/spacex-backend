@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require("cors");
+
 const importLaunches = require('./modules/scripts/scripts');
 const  sequelize  = require('./db/config');
 const router = express.Router();
 const app = express();
+app.use(cors());
 
 
 const spacexroutes = require('./modules/spacex/routes');

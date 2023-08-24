@@ -21,10 +21,10 @@ async function importLaunches() {
         console.log(launches.length);
 
         for (const launchData of launches) {
+
             const existingLaunch = await Launch.findByPk(launchData.id);
 
             if (existingLaunch) {
-                // Update existing launch data here if needed
                 console.log(`Lançamento "${launchData.name}" já existe. Dados atualizados.`);
             } else {
                 for (const key in launchData) {
@@ -33,7 +33,7 @@ async function importLaunches() {
                     }
                 }
                 launchData.window = launchData.window || null;
-                launchData.success = launchData.success ? 1 : 0; // Converte para 1 se true, 0 se false
+                launchData.success = launchData.success ? 1 : 0;
                 launchData.static_fire_date_unix = launchData.static_fire_date_unix || null;
                 launchData.static_fire_date_utc = parseDate(launchData.static_fire_date_utc);
                 launchData.fairings = parseJSONField(launchData.fairings);
