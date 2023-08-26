@@ -4,11 +4,21 @@ const cors = require("cors");
 const importLaunches = require('./modules/scripts/scripts');
 const  sequelize  = require('./db/config');
 const router = express.Router();
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpecs = require('../swagger'); 
 const app = express();
+
 app.use(cors());
 
+require("./cron/cron")
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 const spacexroutes = require('./modules/spacex/routes');
+
+const rocketsroutes = require('./modules/rockets/routes');
+
 const importRockets = require('./modules/scripts/scriptsRockets');
 
 app.use(express.json());
@@ -31,6 +41,7 @@ sequelize
 
 
 app.use(spacexroutes)
+app.use(rocketsroutes)
 
 app.listen(3002, () => {
     console.log(`Servidor rodando na porta ${3002}`);

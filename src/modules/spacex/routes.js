@@ -19,4 +19,14 @@ routes.route('/launches/stats').get(
    SpacexController().getLaunchesStats
 );
 
+routes.route('/launches/rockets').get(
+   SpacexController().getLaunchesRockets
+);
+
+routes.route('/launches/rockets/year').get(
+   SpacexController().getLaunchesRocketsYear
+);
+
+
+
 module.exports = routes;

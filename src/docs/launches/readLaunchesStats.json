@@ -1,0 +1,52 @@
+{
+    "get": {
+        "tags": [
+            "Launches"
+        ],
+        "summary": "Listar quantidade de sucessos e falhas",
+        "description": "Essa rota retorna todos os sucessos e falhas",
+        "responses": {
+            "200": {
+                "description": "Foguetes encontrados",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "results": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "success": {
+                                                "type": "number"
+                                            },
+                                            "fails": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "400": {
+                "description": "Error message",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

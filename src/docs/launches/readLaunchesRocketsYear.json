@@ -1,0 +1,68 @@
+{
+    "get": {
+        "tags": [
+            "Launches"
+        ],
+        "summary": "Listar quantidade de lançamento de cada foguete",
+        "description": "Essa rota retorna todos os lançamentos de cada foguete",
+        "parameters": [
+            {
+                "name": "_id",
+                "in": "path",
+                "type": "string",
+                "required": true
+            }
+        ],
+        "responses": {
+            "200": {
+                "description": "Lançamentos encontrados",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "results": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ano": {
+                                                "type": "number"
+                                            },
+                                            "foguetes": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "nome": {
+                                                        "type": "string"
+                                                    },
+                                                    "count": {
+                                                        "type": "number"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "400": {
+                "description": "Error message",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

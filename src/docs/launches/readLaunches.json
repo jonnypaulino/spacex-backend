@@ -1,0 +1,556 @@
+{
+    "get": {
+        "tags": [
+            "Launches"
+        ],
+        "summary": "Listar Lançamentos",
+        "description": "Essa rota retorna todos os lançamentos",
+        "parameters": [
+            {
+                "name": "search",
+                "in": "path",
+                "type": "string",
+                "required": false
+            },
+            {
+                "name": "limit",
+                "in": "path",
+                "type": "number",
+                "required": false
+            },
+            {
+                "name": "page",
+                "in": "path",
+                "type": "number",
+                "required": false
+            }
+        ],
+        "responses": {
+            "200": {
+                "description": "Foguetes encontrados",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "results": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "fairings": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "reused": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "recovery_attempt": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "recovered": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "ships": {
+                                                        "type": "array"
+                                                    }
+                                                }
+                                            },
+                                            "links": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "patch": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "small": {
+                                                                "type": "string"
+                                                            },
+                                                            "large": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "reddit": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "campaign": {
+                                                                "type": "string"
+                                                            },
+                                                            "launch": {
+                                                                "type": "string"
+                                                            },
+                                                            "media": {
+                                                                "type": "string"
+                                                            },
+                                                            "recovery": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "flickr": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "small": {
+                                                                "type": "array"
+                                                            },
+                                                            "original": {
+                                                                "type": "array"
+                                                            }
+                                                        }
+                                                    },
+                                                    "presskit": {
+                                                        "type": "string"
+                                                    },
+                                                    "webcast": {
+                                                        "type": "string"
+                                                    },
+                                                    "youtube_id": {
+                                                        "type": "string"
+                                                    },
+                                                    "article": {
+                                                        "type": "string"
+                                                    },
+                                                    "wikipedia": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "static_fire_date_utc": {
+                                                "type": "string"
+                                            },
+                                            "static_fire_date_unix": {
+                                                "type": "number"
+                                            },
+                                            "net": {
+                                                "type": "boolean"
+                                            },
+                                            "window": {
+                                                "type": "null"
+                                            },
+                                            "rocket": {
+                                                "type": "string"
+                                            },
+                                            "success": {
+                                                "type": "boolean"
+                                            },
+                                            "failures": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "time": {
+                                                            "type": "number"
+                                                        },
+                                                        "altitude": {
+                                                            "type": "null"
+                                                        },
+                                                        "reason": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "details": {
+                                                "type": "string"
+                                            },
+                                            "crew": {
+                                                "type": "array"
+                                            },
+                                            "ships": {
+                                                "type": "array"
+                                            },
+                                            "capsules": {
+                                                "type": "array"
+                                            },
+                                            "payloads": {
+                                                "type": "array"
+                                            },
+                                            "launchpad": {
+                                                "type": "string"
+                                            },
+                                            "flight_number": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "date_utc": {
+                                                "type": "string"
+                                            },
+                                            "date_unix": {
+                                                "type": "number"
+                                            },
+                                            "date_local": {
+                                                "type": "string"
+                                            },
+                                            "date_precision": {
+                                                "type": "string"
+                                            },
+                                            "upcoming": {
+                                                "type": "boolean"
+                                            },
+                                            "cores": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "core": {
+                                                            "type": "string"
+                                                        },
+                                                        "flight": {
+                                                            "type": "number"
+                                                        },
+                                                        "gridfins": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "legs": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "reused": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "landing_attempt": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "landing_success": {
+                                                            "type": "null"
+                                                        },
+                                                        "landing_type": {
+                                                            "type": "null"
+                                                        },
+                                                        "landpad": {
+                                                            "type": "null"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "auto_update": {
+                                                "type": "boolean"
+                                            },
+                                            "tbd": {
+                                                "type": "boolean"
+                                            },
+                                            "launch_library_id": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "rocketId": {
+                                                "type": "string"
+                                            },
+                                            "createdAt": {
+                                                "type": "string"
+                                            },
+                                            "updatedAt": {
+                                                "type": "string"
+                                            },
+                                            "associatedRocket": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "height": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "meters": {
+                                                                "type": "number"
+                                                            },
+                                                            "feet": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "diameter": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "meters": {
+                                                                "type": "number"
+                                                            },
+                                                            "feet": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "mass": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "kg": {
+                                                                "type": "number"
+                                                            },
+                                                            "lb": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "first_stage": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "thrust_sea_level": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "kN": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "lbf": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "thrust_vacuum": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "kN": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "lbf": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "reusable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "engines": {
+                                                                "type": "number"
+                                                            },
+                                                            "fuel_amount_tons": {
+                                                                "type": "number"
+                                                            },
+                                                            "burn_time_sec": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "second_stage": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "thrust": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "kN": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "lbf": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "payloads": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "composite_fairing": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "height": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "meters": {
+                                                                                        "type": "number"
+                                                                                    },
+                                                                                    "feet": {
+                                                                                        "type": "number"
+                                                                                    }
+                                                                                }
+                                                                            },
+                                                                            "diameter": {
+                                                                                "type": "object",
+                                                                                "properties": {
+                                                                                    "meters": {
+                                                                                        "type": "number"
+                                                                                    },
+                                                                                    "feet": {
+                                                                                        "type": "number"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "option_1": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "reusable": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "engines": {
+                                                                "type": "number"
+                                                            },
+                                                            "fuel_amount_tons": {
+                                                                "type": "number"
+                                                            },
+                                                            "burn_time_sec": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "engines": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "isp": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "sea_level": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "vacuum": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "thrust_sea_level": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "kN": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "lbf": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "thrust_vacuum": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "kN": {
+                                                                        "type": "number"
+                                                                    },
+                                                                    "lbf": {
+                                                                        "type": "number"
+                                                                    }
+                                                                }
+                                                            },
+                                                            "number": {
+                                                                "type": "number"
+                                                            },
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "version": {
+                                                                "type": "string"
+                                                            },
+                                                            "layout": {
+                                                                "type": "string"
+                                                            },
+                                                            "engine_loss_max": {
+                                                                "type": "number"
+                                                            },
+                                                            "propellant_1": {
+                                                                "type": "string"
+                                                            },
+                                                            "propellant_2": {
+                                                                "type": "string"
+                                                            },
+                                                            "thrust_to_weight": {
+                                                                "type": "number"
+                                                            }
+                                                        }
+                                                    },
+                                                    "landing_legs": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "number": {
+                                                                "type": "number"
+                                                            },
+                                                            "material": {
+                                                                "type": "null"
+                                                            }
+                                                        }
+                                                    },
+                                                    "payload_weights": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "id": {
+                                                                    "type": "string"
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                },
+                                                                "kg": {
+                                                                    "type": "number"
+                                                                },
+                                                                "lb": {
+                                                                    "type": "number"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "flickr_images": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string"
+                                                    },
+                                                    "active": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "stages": {
+                                                        "type": "number"
+                                                    },
+                                                    "boosters": {
+                                                        "type": "number"
+                                                    },
+                                                    "cost_per_launch": {
+                                                        "type": "number"
+                                                    },
+                                                    "success_rate_pct": {
+                                                        "type": "number"
+                                                    },
+                                                    "first_flight": {
+                                                        "type": "string"
+                                                    },
+                                                    "country": {
+                                                        "type": "string"
+                                                    },
+                                                    "company": {
+                                                        "type": "string"
+                                                    },
+                                                    "wikipedia": {
+                                                        "type": "string"
+                                                    },
+                                                    "description": {
+                                                        "type": "string"
+                                                    },
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "createdAt": {
+                                                        "type": "string"
+                                                    },
+                                                    "updatedAt": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "400": {
+                "description": "Error message",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,322 @@
+{
+  "get": {
+    "tags": [
+      "Rockets"
+    ],
+    "summary": "Listar Foguetes",
+    "description": "Essa rota retorna todos os foguetes da spacex",
+    "responses": {
+      "200": {
+        "description": "Foguetes encontrados",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "object",
+                  "properties": {
+                    "height": {
+                      "type": "object",
+                      "properties": {
+                        "meters": {
+                          "type": "number"
+                        },
+                        "feet": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "diameter": {
+                      "type": "object",
+                      "properties": {
+                        "meters": {
+                          "type": "number"
+                        },
+                        "feet": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "mass": {
+                      "type": "object",
+                      "properties": {
+                        "kg": {
+                          "type": "number"
+                        },
+                        "lb": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "first_stage": {
+                      "type": "object",
+                      "properties": {
+                        "thrust_sea_level": {
+                          "type": "object",
+                          "properties": {
+                            "kN": {
+                              "type": "number"
+                            },
+                            "lbf": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "thrust_vacuum": {
+                          "type": "object",
+                          "properties": {
+                            "kN": {
+                              "type": "number"
+                            },
+                            "lbf": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "reusable": {
+                          "type": "boolean"
+                        },
+                        "engines": {
+                          "type": "number"
+                        },
+                        "fuel_amount_tons": {
+                          "type": "number"
+                        },
+                        "burn_time_sec": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "second_stage": {
+                      "type": "object",
+                      "properties": {
+                        "thrust": {
+                          "type": "object",
+                          "properties": {
+                            "kN": {
+                              "type": "number"
+                            },
+                            "lbf": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "payloads": {
+                          "type": "object",
+                          "properties": {
+                            "composite_fairing": {
+                              "type": "object",
+                              "properties": {
+                                "height": {
+                                  "type": "object",
+                                  "properties": {
+                                    "meters": {
+                                      "type": "number"
+                                    },
+                                    "feet": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "diameter": {
+                                  "type": "object",
+                                  "properties": {
+                                    "meters": {
+                                      "type": "number"
+                                    },
+                                    "feet": {
+                                      "type": "number"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "option_1": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "reusable": {
+                          "type": "boolean"
+                        },
+                        "engines": {
+                          "type": "number"
+                        },
+                        "fuel_amount_tons": {
+                          "type": "number"
+                        },
+                        "burn_time_sec": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "engines": {
+                      "type": "object",
+                      "properties": {
+                        "isp": {
+                          "type": "object",
+                          "properties": {
+                            "sea_level": {
+                              "type": "number"
+                            },
+                            "vacuum": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "thrust_sea_level": {
+                          "type": "object",
+                          "properties": {
+                            "kN": {
+                              "type": "number"
+                            },
+                            "lbf": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "thrust_vacuum": {
+                          "type": "object",
+                          "properties": {
+                            "kN": {
+                              "type": "number"
+                            },
+                            "lbf": {
+                              "type": "number"
+                            }
+                          }
+                        },
+                        "number": {
+                          "type": "number"
+                        },
+                        "type": {
+                          "type": "string"
+                        },
+                        "version": {
+                          "type": "string"
+                        },
+                        "layout": {
+                          "type": "string"
+                        },
+                        "engine_loss_max": {
+                          "type": "number"
+                        },
+                        "propellant_1": {
+                          "type": "string"
+                        },
+                        "propellant_2": {
+                          "type": "string"
+                        },
+                        "thrust_to_weight": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "landing_legs": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "number"
+                        },
+                        "material": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payload_weights": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "kg": {
+                            "type": "number"
+                          },
+                          "lb": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "flickr_images": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "active": {
+                      "type": "boolean"
+                    },
+                    "stages": {
+                      "type": "number"
+                    },
+                    "boosters": {
+                      "type": "number"
+                    },
+                    "cost_per_launch": {
+                      "type": "number"
+                    },
+                    "success_rate_pct": {
+                      "type": "number"
+                    },
+                    "first_flight": {
+                      "type": "string"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "company": {
+                      "type": "string"
+                    },
+                    "wikipedia": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "updatedAt": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Error message",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
